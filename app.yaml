@@ -8,6 +8,13 @@ handlers:
 - url: /mobile/thanks.php
   script: /mobile/thanks.php
 
+- url: /images
+  static_dir: mobile/images
+
+- url: /styles
+  static_dir: styles
+
+
 - url: /mobile/rankCar.php
   script: /mobile/rankCar.php
 
@@ -16,10 +23,6 @@ handlers:
 
 - url: /mobile/rankPassenger.php
   script: /mobile/rankPassenger.php
-
-- url: /(.*\.(gif|png|jpg))$
-  static_files: static/\1
-  upload: static/.*\.(gif|png|jpg)$
 
 - url: /.*
   script: index.php

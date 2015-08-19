@@ -4,9 +4,9 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
 <body>
@@ -38,20 +38,32 @@
     }
     $conn->close();
 ?>
+<div class="uberheader">
+<img src="/images/ubertinder-logo.png" height="65" width="328">
+</div>
 
-<div class="container">
+<div class="apptopbar">
+<a class="back" href="javascript:history.back()">Back</a>
+
+<div>
+
+</div>
+
+</div>
+
+<div class="container" id="rank">
   <div class="row">
       <div class="col-centered">How would you rank <?php echo $name; ?> as a passenger?</div>
   </div>
       <div class="row">
-        <div class="col-centered"><img src="<?php echo $photoUrl; ?>" width=250;height=250;></div></div>
+        <div class="col-centered uberphotobox"><img src="<?php echo $photoUrl; ?>" class="uberphoto" width=250;height=250;></div></div>
     <div class="row">
         <div class="col-centered">
       <form action="thanks.php" method="post">
         <input type="hidden" name="type" value="passenger" />
         <input type="hidden" name="userId" value="<?php echo $userId; ?>" />
-        <input type="submit" name="bad" alt="Bad" value="Bad"/>
-        <input type="submit" name="good" alt="Good" value="Good"/>
+        <input type="image" height="160" width="160" src="/images/thumbsdown-icon.png"  name="bad" alt="Bad" value="Bad"/>
+        <input type="image" height="160" width="160" src="/images/thumbsup-icon.png" name="good" alt="Good" value="Good"/>
       </form></div>
     </div>
 
