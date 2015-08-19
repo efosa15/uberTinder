@@ -92,7 +92,7 @@
           elseif ($_POST['submit'] == "Register") {
 
             $sql = "INSERT INTO USERS (UserName, PhotoURL, Type, Email, Password, Sex)
-                    VALUES ($username, $photoURL, $type, $email, $password, $sex)";
+                    VALUES ($firstname, $photoURL, $type, $email, $password, $sex)";
 
             echo "<table border='1'>
                     <tr>
@@ -101,7 +101,7 @@
                     </tr>";
 
             echo "<tr>
-                          <td>$username</td>
+                          <td>$firstname</td>
                           <td><img src='$photoURL' width='150' height='150'></td></tr>";
             echo "</table>";
 
