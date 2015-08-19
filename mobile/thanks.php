@@ -2,13 +2,10 @@
 <html lang="en">
 
 <head>
-
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -16,27 +13,44 @@
 
 <body>
 
-<div class="container">
-
-<img src="https://cdn0.iconfinder.com/data/icons/weboo-2/512/tick.png" />
-
   <?php
+  /*
+  $username = "root";
+  $password = "";
+  $dbname = "uberTinder_DB";
 
+  $conn = new mysqli(null,
+    $username, // username
+    $password, // password
+    $dbname,
+    null,
+    '/cloudsql/dvlahack:ubertinder'
+    );
 
-
-      echo("Type: " . $_POST['type'] . "<br>");
-      echo("UserId: " . $_POST['userId'] . "<br>");
+    //Update number of Journeys
+    $sql = "UPDATE Users SET NoOfJourneys = NoOfJourneys + 1 WHERE UserId = " . $_POST['userId'];
+    $result = $conn->query($sql);
 
       if (isset($_POST['good'])) {
-          # Publish-button was clicked
-          echo("Good review" );
+          //Good review
+          $sql = "UPDATE Users SET Rating = Rating + 1 WHERE UserId = " . $_POST['userId'];
+          $result = $conn->query($sql);
+
       }
       elseif (isset($_POST['bad'])) {
-          # Save-button was clicked
-          echo ("Bad Review");
-      }
+        //Bad review
+        $sql = "UPDATE Users SET Rating = Rating - 1 WHERE UserId = " . $_POST['userId'];
+        $result = $conn->query($sql);
+    }
+
+$conn->close();
+*/
   ?>
 
+
+<div class="container">
+
+<h1>Thanks for your feedback!</h1>
 
 </div>
 

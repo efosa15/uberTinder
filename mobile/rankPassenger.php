@@ -9,7 +9,7 @@
 
 <body>
   <?php
-  /*$username = "root";
+  $username = "root";
   $password = "";
   $dbname = "uberTinder_DB";
 
@@ -34,13 +34,7 @@
     } else {
         echo "0 results";
     }
-    $conn->close(); */
-
-    $userId = "123456";
-    $name = "Joe Bloggs";
-    $photoUrl = "https://avatars3.githubusercontent.com/u/2380536?v=3&s=460";
-
-
+    $conn->close();
 ?>
 
 <div class="container">
