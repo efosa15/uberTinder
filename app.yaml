@@ -4,8 +4,22 @@ runtime: php55
 api_version: 1
 
 handlers:
+
+- url: /mobile/thanks.php
+  script: /mobile/thanks.php
+
+- url: /mobile/rankCar.php
+  script: /mobile/rankCar.php
+
+- url: /mobile/rankDriver.php
+  script: /mobile/rankDriver.php
+
 - url: /mobile/rankPassenger.php
   script: /mobile/rankPassenger.php
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
 
 - url: /.*
   script: index.php

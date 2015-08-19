@@ -2,36 +2,58 @@
 <html lang="en">
 
 <head>
-
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-  <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 
 <body>
 
+  <?php
+  $username = "root";
+  $password = "";
+  $dbname = "uberTinder_DB";
+
+  $conn = new mysqli(null,
+    $username, // username
+    $password,     // password
+    $dbname,
+    null,
+    '/cloudsql/dvlahack:ubertinder'
+    );
+
+    $sql = "SELECT * FROM Users";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "UserId: " . $row["UserId"]. " - Name: " . $row["UserName"]. "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+?>
+
+
+
 <div class="container">
-
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
-    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      <div class="col-centered">How would you rank {name} as a passenger?</div>
   </div>
-  <div class="row">
-    <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-    <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-    <!-- Optional: clear the XS cols if their content doesn't match in height -->
-    <div class="clearfix visible-xs-block"></div>
-    <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-  </div>
+      <div class="row">
+        <div class="col-centered"><img src="http://yourbellalife.com/wp-content/uploads/2013/01/po9kjc0nsc5ge.jpeg"></div></div>
 
+    <div class="row">
+        <div class="col-centered">
+      <form action="thanks.php" method="post">
+        <input type="hidden" name="type" value="passenger" />
+        <input type="hidden" name="userId" value="123456" />
+        <input type="submit" name="bad" alt="Bad" value="Bad"/>
+        <input type="submit" name="good" alt="Good" value="Good"/>
+      </form></div>
+    </div>
 
 </div>
 
