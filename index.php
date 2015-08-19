@@ -1,7 +1,7 @@
 <html>
 
 <head>
-
+<title>UberTinder</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -14,6 +14,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <script src="http://maps.googleapis.com/maps/api/js"></script>
+
+  <link rel="stylesheet" href="/styles/styles.css">
+
+
 <!--  <script>
   function initialize() {
     var mapProp = {
@@ -45,11 +49,14 @@
     <div class="jumbotron">
       <div class="panel panel-default">
         <div class ="panel-body text-center">
-          <h1><?php echo("uberTinder")?></h1>
+          <div class="uberheader">
+          <img src="/images/ubertinder-logo.png" height="65" width="328">
+          </div>
+
           <form action="" method="POST">
-          <p>Going from: <input id="startLoc" type="textbox" placeholder="SA1 3QW" class="form-control"</p>
-          <p>Going to: <input id="endLoc" type="textbox" placeholder="SA6 7JL" class="form-control" ></p>
-            <input type="submit" height="160" width="160" name="good" alt="Good" value="Go Go Go"/>
+          <p>Going from: <input name="startLoc" type="textbox" placeholder="SA1 3QW" class="form-control"</p>
+          <p>Going to: <input name="endLoc" type="textbox" placeholder="SA6 7JL" class="form-control" ></p>
+          <input type="submit" height="160" width="160" name="good" alt="Good" value="Find My Ride"/>
           </form>
         </div>
       </div>
@@ -79,17 +86,82 @@
 
     directionsDisplay.setMap(map);
 
+
     var request = {
-      origin: 'Swansea',
-      destination: 'SA6 7JL',
+      origin: '<?php  echo ($_POST["startLoc"]);?>',
+      destination: '<?php echo ($_POST["endLoc"]);?>',
       travelMode: google.maps.DirectionsTravelMode.DRIVING
     };
+
+      setMarkers(map);
+
+
+function setMarkers(map) {
+
+var users = [
+  
+
+
+
+
+
+
+
+['Clydach', 51.694293, -3.898795, 6],
+['Ynsforgan', 51.680985, -3.917458, 5],
+['Swansea Marina', 51.616253, -3.932387, 4],
+['Manly Beach', 51.622632, -3.920418, 3],
+['Maroubra Beach', 51.579189, -3.760517, 2],
+['Morriston', 51.662244, -3.930297,1],
+['Glais',51.689365,-3.878138,0]
+];
+
+  // Marker sizes are expressed as a Size of X,Y where the origin of the image
+  // (0,0) is located in the top left of the image.
+
+  // Origins, anchor positions and coordinates of the marker increase in the X
+  // direction to the right and in the Y direction down.
+  var image = {
+    url: 'images/user.png',
+    // This marker is 20 pixels wide by 32 pixels high.
+    size: new google.maps.Size(32, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+  // Shapes define the clickable region of the icon. The type defines an HTML
+  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+  // The final coordinate closes the poly by connecting to the first coordinate.
+  var shape = {
+    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+    type: 'poly'
+  };
+
+  for (var i = 0; i < users.length; i++) {
+    var user = users[i];
+    var marker = new google.maps.Marker({
+      position: {lat: user[1], lng: user[2]},
+      map: map,
+      icon: image,
+      shape: shape,
+      title: user[0],
+      zIndex: user[3]
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+    window.location.href = 'driverDetails.php?userId=' + user[3];  //changed from markers[i] to this[i]
+  });
+
+  }
+}
 
     directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         directionsDisplay.setDirections(response);
       }
     });
+
   </script>
 
 
