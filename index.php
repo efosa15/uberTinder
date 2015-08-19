@@ -79,6 +79,7 @@
     var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();
 
+
     var map = new google.maps.Map(document.getElementById('googleMap'), {
       zoom:7,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -99,21 +100,39 @@
 function setMarkers(map) {
 
 var users = [
-  
 
+  <?php
+  $username = "root";
+  $password = "";
+  $dbname = "uberTinder_DB";
 
+  $conn = new mysqli(null,
+    $username, // username
+    $password, // password
+    $dbname,
+    null,
+    '/cloudsql/dvlahack:ubertinder'
+    );
 
+    $sql = "SELECT UserId, UserName, Lat, Lng FROM Users WHERE Type = 'Driver'";
+    $result = $conn->query($sql);
 
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          echo ("['" . $row["UserName"] ."'," . $row["Lat"] . ", " . $row["Lng"] . ", " . $row["UserId"] ."],");
+          //['Clydach', 51.694293, -3.898795, 6],
+          //$userId = $row["UserId"];
+          //$name = $row["UserName"];
+          //$photoUrl = $row["PhotoUrl"];
+        }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+?>
 
-
-
-['Clydach', 51.694293, -3.898795, 6],
-['Ynsforgan', 51.680985, -3.917458, 5],
-['Swansea Marina', 51.616253, -3.932387, 4],
-['Manly Beach', 51.622632, -3.920418, 3],
-['Maroubra Beach', 51.579189, -3.760517, 2],
-['Morriston', 51.662244, -3.930297,1],
-['Glais',51.689365,-3.878138,0]
+['Dave',51.689365,-3.878138,2]
 ];
 
   // Marker sizes are expressed as a Size of X,Y where the origin of the image
@@ -138,6 +157,8 @@ var users = [
     type: 'poly'
   };
 
+  var global_markers = [];
+
   for (var i = 0; i < users.length; i++) {
     var user = users[i];
     var marker = new google.maps.Marker({
@@ -146,14 +167,22 @@ var users = [
       icon: image,
       shape: shape,
       title: user[0],
-      zIndex: user[3]
+      //url: 'driverDetails.php?userId=' + user[3]
     });
 
-    google.maps.event.addListener(marker, 'click', function() {
-    window.location.href = 'driverDetails.php?userId=' + user[3];  //changed from markers[i] to this[i]
-  });
+    marker['url'] = 'driverDetails.php?userId=' + user[3];
+
+    global_markers[i] = marker;
+
+    google.maps.event.addListener(global_markers[i], 'click', function() {
+         //window.location.href = 'this[driverDetails.php?userId=' + user[3];  //changed from markers[i] to this[i]
+         window.location.href = this['url'];
+       });
 
   }
+
+
+
 }
 
     directionsService.route(request, function(response, status) {
