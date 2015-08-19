@@ -71,9 +71,9 @@
             $counter = 1;
             // output data of each row
             while($row = $result->fetch_assoc()) {
+                $userId = $row["UserId"];
               echo "<tr>
-
-                          <td><input type='radio' name='driver' value='$counter'/></td>
+                          <td><input type='radio' name='driver' value='$userId'/></td>
                           <td>".$row["UserName"]."</td>
                           <td>".$row["DriverRating"]."</td>
                           <td>".$row["PassengerRating"]."</td>
