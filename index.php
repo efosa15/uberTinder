@@ -58,7 +58,8 @@
 
       <div class="panel panel-default">
         <div class="panel-body text-center">
-          <p><input class="btn btn-sm btn-primary" type="button" value="Search for a Driver" id="driverSearch" style="width:calc(50% - 10px)"> <input class="btn btn-sm btn-primary" type="button" value="Search for Passengers" id="passengerSearch" style="width:calc(50% - 10px)"></p>
+          <a href="/drivers" class="btn btn-primary" role="button" style="width:calc(50% - 10px)">Find a Driver</a>
+          <a href="#" class="btn btn-primary" role="button" style="width:calc(50% - 10px)">Find Passengers</a>
         </div>
       </div>
 
