@@ -55,7 +55,7 @@
 
       <div class="panel panel-default">
         <div class="panel-body text-center">
-          <a href="/drivers" class="btn btn-primary" role="button" style="width:calc(50% - 10px)">Find a Driver</a>
+          <a href="/driversAvailable" class="btn btn-primary" role="button" style="width:calc(50% - 10px)">Find a Driver</a>
           <a href="#" class="btn btn-primary" role="button" style="width:calc(50% - 10px)">Find Passengers</a>
         </div>
       </div>
