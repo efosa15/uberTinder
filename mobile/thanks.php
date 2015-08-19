@@ -14,7 +14,7 @@
 <body>
 
   <?php
-  /*
+
   $username = "root";
   $password = "";
   $dbname = "uberTinder_DB";
@@ -31,20 +31,41 @@
     $sql = "UPDATE Users SET NoOfJourneys = NoOfJourneys + 1 WHERE UserId = " . $_POST['userId'];
     $result = $conn->query($sql);
 
-      if (isset($_POST['good'])) {
-          //Good review
-          $sql = "UPDATE Users SET Rating = Rating + 1 WHERE UserId = " . $_POST['userId'];
-          $result = $conn->query($sql);
+    if ($_POST['type'] == "Passenger") {
 
-      }
-      elseif (isset($_POST['bad'])) {
-        //Bad review
-        $sql = "UPDATE Users SET Rating = Rating - 1 WHERE UserId = " . $_POST['userId'];
-        $result = $conn->query($sql);
+            if (isset($_POST['good'])) {
+                //Good review
+                $sql = "UPDATE Users SET PassengerRating = PassengerRating + 1 WHERE UserId = " . $_POST['userId'];
+                $result = $conn->query($sql);
+
+            }
+            elseif (isset($_POST['bad'])) {
+              //Bad review
+              $sql = "UPDATE Users SET PassengerRating = PassengerRating - 1 WHERE UserId = " . $_POST['userId'];
+              $result = $conn->query($sql);
+          }
+
+    }
+    elseif ($_POST['type'] == "Driver") {
+
+                  if (isset($_POST['good'])) {
+                      //Good review
+                      $sql = "UPDATE Users SET DriverRating = DriverRating + 1 WHERE UserId = " . $_POST['userId'];
+                      $result = $conn->query($sql);
+
+                  }
+                  elseif (isset($_POST['bad'])) {
+                    //Bad review
+                    $sql = "UPDATE Users SET DriverRating = DriverRating - 1 WHERE UserId = " . $_POST['userId'];
+                    $result = $conn->query($sql);
+                }
+
     }
 
+
+
 $conn->close();
-*/
+
   ?>
 
 
