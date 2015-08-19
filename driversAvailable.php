@@ -17,13 +17,20 @@
 
 <div class="container">
 
-  <div class="jumbotron">
-  <h1><?php echo("uberTinder")?></h1>
+    <div class="jumbotron">
+        <div class="panel panel-default">
+            <div class ="panel-body text-center">
+                <h1><?php echo("uberTinder")?></h1>
+                <h3><?php echo("Please select from the available drivers")?></h3>
+            </div>
+        </div>
+    </div>
 
-    <h3><?php echo("Please select from the available drivers")?></h3>
+    <div class="panel panel-default">
+        <div class="panel-body text-center">
 
 
-    <?php
+        <?php
 
           $username = "root";
           $password = "";
@@ -76,8 +83,8 @@
           $conn->close();
     ?>
 
-
-</div>
+    </div>
+    </div>
 
 </body>
 
