@@ -20,11 +20,13 @@
     <div class="jumbotron">
         <div class="panel panel-default">
             <div class ="panel-body text-center">
-                <h1><?php echo("uberTinder")?></h1>
-                <h3><?php echo("Please select from the available drivers")?></h3>
+                <div class="uberheader">
+                    <img src="/images/ubertinder-logo.png" height="65" width="328">
+                </div>
+                <p>Please select from the available drivers</p>
             </div>
         </div>
-    </div>
+
 
     <div class="panel panel-default">
         <div class="panel-body text-center">
@@ -44,7 +46,7 @@
               '/cloudsql/dvlahack:ubertinder'
           );
 
-          $sql = "SELECT * FROM Users ORDER BY PassengerRating DESC ";
+          $sql = "SELECT * FROM Users ORDER BY PassengerRating DESC LIMIT 3";
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) {
@@ -77,6 +79,8 @@
                 $counter++;
             }
             echo "</table>";
+            echo "<input type='submit' name='confirm' value='Confirm'/>";
+
           } else {
             echo "<h3>No records were found</h3>";
           }
