@@ -11,16 +11,30 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="/styles/styles.css">
+
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="jumbotron">
-  <h1><?php echo("uberTinder")?></h1>
+    <div class="jumbotron">
+        <div class="panel panel-default">
+            <div class ="panel-body text-center">
+                <div class="uberheader">
+                    <img src="/images/ubertinder-logo.png" height="65" width="328">
+                </div>
+                <p>Search our drivers ...</p>
+            </div>
+        </div>
+    </div>
 
-    <h3><?php echo("Search our users ...")?></h3>
+
+    <div class="panel panel-default">
+        <div class="panel-body text-center">
+
 
 
     <form name="form" method="post">
@@ -121,11 +135,11 @@
           $conn->close();
         }//if isset
 
-
     ?>
 
 
-</div>
+    </div>
+        </div>
 
 </body>
 
