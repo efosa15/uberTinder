@@ -17,6 +17,9 @@ handlers:
 - url: /drivers
   script: drivers.php
 
+- url: /driverDetails
+  script: driverDetails.php
+
 - url: /registration
   script: registration.php
 
