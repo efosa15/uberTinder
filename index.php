@@ -14,7 +14,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <script src="http://maps.googleapis.com/maps/api/js"></script>
-  <script>
+<!--  <script>
   function initialize() {
     var mapProp = {
       center:new google.maps.LatLng(51.6167,-3.9500),
@@ -32,15 +32,14 @@
       position: new google.maps.LatLng(51.669997, -3.945445),
     });
 
-    sMark.setMap(map);
-    dMark.setMap(map);
+    //sMark.setMap(map);
+  //  dMark.setMap(map);
   }
-  google.maps.event.addDomListener(window, 'load', initialize);
-  </script>
+//  google.maps.event.addDomListener(window, 'load', initialize);
+  </script>-->
 </head>
 
 <body>
-
   <div class="container">
 
     <div class="jumbotron">
@@ -63,6 +62,34 @@
     </div>
 
   </div>
+
+  <script type="text/javascript">
+
+    var directionsService = new google.maps.DirectionsService();
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+
+    var map = new google.maps.Map(document.getElementById('googleMap'), {
+      zoom:7,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    directionsDisplay.setMap(map);
+
+    var request = {
+      origin: 'SA1 3QW',
+      destination: 'SA6 7JL',
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+  </script>
+
+
+
 
 </body>
 

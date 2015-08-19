@@ -62,11 +62,8 @@
 
     }
 
-
-
 $conn->close();
-
-  ?>
+?>
 
 
 <div class="container">

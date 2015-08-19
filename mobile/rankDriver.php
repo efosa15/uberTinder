@@ -42,18 +42,13 @@
 <img src="/images/ubertinder-logo.png" height="65" width="328">
 </div>
 
-<div class="apptopbar">
-<a class="back" href="javascript:history.back()">Back</a>
-
-<div>
-
 </div>
 
 </div>
 
 <div class="container" id="rank">
   <div class="row">
-      <div class="col-centered">How would you rank <?php echo $name; ?> as a <b>driver</b>?</div>
+      <div class="col-centered h4">How was <?php echo $name; ?> as a <b>driver</b>?</div>
   </div>
       <div class="row">
         <div class="col-centered uberphotobox"><img src="<?php echo $photoUrl; ?>" class="uberphoto" width=250;height=250;></div></div>
@@ -62,7 +57,7 @@
       <form action="thanks.php" method="post">
         <input type="hidden" name="type" value="Driver" />
         <input type="hidden" name="userId" value="<?php echo $userId; ?>" />
-        <input type="image" height="160" width="160" src="/images/thumbsdown-icon.png"  name="bad" alt="Bad" value="Bad"/>
+        <input type="image" height="160" width="160" src="/images/thumbsdown-icon.png"  name="bad" alt="Bad" value="Bad"  style="margin-top:25px;"/>
         <input type="image" height="160" width="160" src="/images/thumbsup-icon.png" name="good" alt="Good" value="Good"/>
       </form></div>
     </div>
