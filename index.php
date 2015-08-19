@@ -50,7 +50,7 @@
       <div class="panel panel-default">
         <div class ="panel-body text-center">
           <div class="uberheader">
-          <img src="/images/ubertinder-logo.png" height="65" width="328">
+          <img src="/images/ubertinder-logo.png" height= width="85%">
           </div>
 
           <form action="" method="POST">
