@@ -68,7 +68,7 @@
 
           if ($result->num_rows > 0) {
 
-            echo "<table border='1'>
+            echo "<table border='1' style='width:100%'>
                     <tr>
                           <th>User Name</th>
                           <th>Driver Rating</th>
