@@ -23,6 +23,9 @@ handlers:
 - url: /registration
   script: registration.php
 
+- url: /userDetails.php
+  script: userDetails.php
+
 - url: /driversAvailable
   script: driversAvailable.php
 
