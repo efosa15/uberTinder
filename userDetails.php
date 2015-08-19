@@ -11,6 +11,9 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+  <link rel="stylesheet" href="/styles/styles.css">
+
+
 </head>
 
 <body>
@@ -53,8 +56,9 @@
             '/cloudsql/dvlahack:ubertinder'
         );
 
-
           if ($_POST['submit'] == "Login") {
+
+            echo "$username and $password";
 
             $sql = "SELECT * FROM Users WHERE UserName = $firstname AND Password = $password";
             $result = $conn->query($sql);
