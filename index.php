@@ -46,8 +46,11 @@
       <div class="panel panel-default">
         <div class ="panel-body text-center">
           <h1><?php echo("uberTinder")?></h1>
+          <form action="" method="POST">
           <p>Going from: <input id="startLoc" type="textbox" placeholder="SA1 3QW" class="form-control"</p>
-          <p>Going to: <input id="startLoc" type="textbox" placeholder="SA6 7JL" class="form-control" ></p>
+          <p>Going to: <input id="endLoc" type="textbox" placeholder="SA6 7JL" class="form-control" ></p>
+            <input type="submit" height="160" width="160" name="good" alt="Good" value="Go Go Go"/>
+          </form>
         </div>
       </div>
 
@@ -76,7 +79,7 @@
     directionsDisplay.setMap(map);
 
     var request = {
-      origin: 'SA1 3QW',
+      origin: 'Swansea',
       destination: 'SA6 7JL',
       travelMode: google.maps.DirectionsTravelMode.DRIVING
     };
