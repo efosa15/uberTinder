@@ -37,8 +37,7 @@
               '/cloudsql/dvlahack:ubertinder'
           );
 
-          $sql = "SELECT * FROM Users WHERE PassengerRating >= $rating
-                  ORDER BY PassengerRating DESC ";
+          $sql = "SELECT * FROM Users ORDER BY PassengerRating DESC ";
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) {
