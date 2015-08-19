@@ -58,9 +58,7 @@
 
           if ($_POST['submit'] == "Login") {
 
-            echo "$username and $password";
-
-            $sql = "SELECT * FROM Users WHERE UserName = $firstname AND Password = $password";
+            $sql = "SELECT * FROM Users WHERE UserName LIKE $firstname AND Password LIKE $password";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -91,8 +89,8 @@
           }
           elseif ($_POST['submit'] == "Register") {
 
-            $sql = "INSERT INTO USERS (UserName, PhotoURL, Type, Email, Password, Sex)
-                    VALUES ($firstname, $photoURL, $type, $email, $password, $sex)";
+            $sql = "INSERT INTO USERS (UserName, PhotoURL, Email, Password, Sex)
+                    VALUES ($firstname, $photoURL, $email, $password, $sex)";
 
             echo "<table border='1'>
                     <tr>
