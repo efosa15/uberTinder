@@ -31,7 +31,7 @@
     $sql = "UPDATE Users SET NoOfJourneys = NoOfJourneys + 1 WHERE UserId = " . $_POST['userId'];
     $result = $conn->query($sql);
 
-    if ($_POST['type'] = "Passenger") {
+    if ($_POST['type'] == "Passenger") {
 
             if (isset($_POST['good'])) {
                 //Good review
@@ -46,8 +46,20 @@
           }
 
     }
-    elseif ($_POST['type'] = "Driver") {
-      # code...
+    elseif ($_POST['type'] == "Driver") {
+
+                  if (isset($_POST['good'])) {
+                      //Good review
+                      $sql = "UPDATE Users SET DriverRating = DriverRating + 1 WHERE UserId = " . $_POST['userId'];
+                      $result = $conn->query($sql);
+
+                  }
+                  elseif (isset($_POST['bad'])) {
+                    //Bad review
+                    $sql = "UPDATE Users SET DriverRating = DriverRating - 1 WHERE UserId = " . $_POST['userId'];
+                    $result = $conn->query($sql);
+                }
+
     }
 
 
