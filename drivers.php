@@ -32,14 +32,16 @@
 
 
     <?php
-        if(isset($_POST['button1'])){
+
+        $username = "root";
+        $password = "";
+        $dbname = "uberTinder_DB";
+
+
+    if(isset($_POST['button1'])){
           $name = $_POST['name'];
 
-          $username = "db_user";
-          $password = "Secret123";
-          $dbname = "uberTinder_DB";
-
-          $conn = new mysqli("173.194.224.107",
+          $conn = new mysqli(null,
               $username, // username
               $password, // password
               $dbname,
@@ -80,11 +82,7 @@
         if(isset($_POST['button2'])){
           $rating = $_POST['rating'];
 
-          $username = "db_user";
-          $password = "Secret123";
-          $dbname = "uberTinder_DB";
-
-          $conn = new mysqli("173.194.224.107",
+          $conn = new mysqli(null,
               $username, // username
               $password, // password
               $dbname,
